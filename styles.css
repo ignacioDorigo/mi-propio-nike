@@ -1,0 +1,581 @@
+/* Variables */
+:root {
+  --letraCard: "Roboto", sans-serif;
+  --colorNegro: #000000;
+  --colorBlanco: #ffffff;
+}
+/* Border box de Paul Irish */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+body {
+  overflow-x: hidden;
+  background-color: var(--colorBlanco);
+
+}
+
+.header{
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background-color: var(--colorNegro);
+}
+
+.header__enlace__logo{
+  height: 100%;
+  display: inline-block;
+}
+
+.header__div__logo{
+  height: 100%;
+}
+
+.header__logo{
+  height: 80%;
+}
+
+.header a{
+  padding: 0.5rem 2rem; 
+}
+
+.nav{
+  height: 100%;
+  display: flex;
+
+}
+
+.nav__enlace{
+  display: flex;
+  color: var(--colorBlanco);
+  font-family: sans-serif;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  transition: .7s ease;
+}
+
+.header__input,
+.header__svg{
+  display: none;
+}
+
+.nav__enlace:hover{
+  color: var(--colorNegro);
+  background-color: #bdbbbe;
+}
+
+@media (max-width: 768px){
+
+    .header__svg{
+      display: block;
+      margin-right: 20px;
+      cursor: pointer;
+      transition: .3s ease-in-out;
+    }
+    .header__svg:hover{
+      border: 1px solid #7A777E;
+      border-radius: 10px;
+    }
+    .header__input:checked ~ .nav{
+      display: none;
+    }
+    .nav{
+      position: absolute;
+      top: 10vh;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: max-content;
+      background-color: #000000;
+      z-index: 999;
+    }
+    .nav .nav__enlace{
+      padding: 100px; 
+      width: 100%;
+      justify-content: center;
+      padding: 3rem;
+      font-size: 1.5rem;
+    }
+}
+
+/* -------------- MAIN -------------- */
+
+.main__tienda{
+  height: max-content;
+  width: 80%;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill, minmax(250px, 1fr)
+  );
+  gap:2rem
+}
+@media (max-width: 679px){
+    .main__tienda{
+      grid-template-columns: 300px;
+      justify-content: center;
+    }
+}
+
+.card{
+  background-color: var(--colorBlanco);
+  width: 100%;
+  height: 450px;
+  border-radius: 10px;
+  position: relative;
+  font-family: var(--letraCard);
+  color: var(--colorBlanco);
+  cursor: pointer;
+  transition: .3s ease-in-out;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+}
+.card:hover{
+
+  scale: 1.10;
+}
+.card__header{
+  height: 50%;
+  background-color: #b7b9bb;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.card__logo{
+  height: 30%;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.card__shoe{
+  position: absolute;
+  height:80px;
+  width: 150px;
+  transform: rotate(-45deg);
+  right: -20px;
+}
+.card__title{
+  margin-bottom: 10px;
+}
+.card__description{
+  font-weight: 200;
+  width: 70%;
+  font-size: .85rem;
+}
+
+.card__title,
+.card__description{
+  margin-left: 12px;
+}
+
+.card__body{
+  height: 50%;
+}
+.card__title2,.card__size{
+  color: #000000;
+}
+.card__collection,
+.card__author{
+  color: #7A777E;
+  font-weight: 400;
+}
+
+.div__card__size,
+.card__title2,
+.card__collection,
+.card__author,
+.card__footer{
+  margin-left: 12px;
+}
+.div__title2{
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap:2rem
+}
+.card__new{
+  display: inline-block;
+  height: max-content;
+  background-color: #48d1ae;
+  border-radius:5px;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 3px;
+}
+
+.div__card__size{
+  margin-top: 10px;
+}
+
+.tamanios{
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.tamanio{
+  text-decoration: none;
+  border: none;
+  background: gray;
+  padding: 3px;
+  border-radius: 100%;
+  cursor: pointer;
+  color: var(--colorBlanco);
+  transition: .3s ease-in-out;
+}
+
+.tamanio:focus{
+  background-color: #48d1ae;
+  scale: 1.10;
+}
+
+/* DIV FOOTER */
+.card__footer{
+  display: flex;
+}
+
+/* BOTON COMPRAR */
+
+.card__button{
+  margin-top: 40px;
+  background-color: #000000;
+  border: none;
+  font-family: var(--letraCard);
+  color: var(--colorBlanco);
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.card__button:hover{
+  background-color: #f56300;
+}
+
+/* PRECIO */
+.div__price{
+  width: max-content;
+  padding: 5px 10px;
+  border-radius: 7px;
+  position: absolute;
+  bottom: 15px;
+  right: -10px;
+}
+
+.div__price p{
+  font-weight: 100;
+}
+
+.div__price p span{
+  font-weight: bold;
+}
+
+
+
+
+/* CAMBIA EN CADA CARD */
+.div__price1{
+  background-color: #b7b9bb ;
+}
+
+.card__header2,.div__price2{
+  background-color: #005f6f;
+}
+.card__header3,.div__price3{
+  background-color: #caa78a;
+}
+
+.card__header4,.div__price4{
+  background-color: #91030f;
+}
+.card__header5,.div__price5{
+  background-color: #7b7d81;
+}
+.card__header6,.div__price6{
+  background-color: #9f2936;
+}
+.card__header7,.div__price7{
+  background-color: #cda368;
+}
+.card__header8,.div__price8{
+  background-color: #3e3164;
+}
+.card__header9,.div__price9{
+  background-color: #809b9a;
+}
+.card__header10,.div__price10{
+  background-color: #017347;
+}
+.card__header11,.div__price11{
+  background-color: #019bca;
+}
+.card__header12,.div__price12{
+  background-color: #9d465f;
+}
+
+/* Footer */
+.footer{
+  position: absolute;
+  height: 10vh;
+  width: 100%;
+  /* bottom: 0; */
+  background-color: var(--colorNegro);
+}
+
+.div__footer{
+  padding-top: 4px;
+  width: 80%;
+  border-top: 3px solid rgb(58, 57, 57);
+  display: flex;
+  color: var(--colorBlanco);
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__derechos{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  display: flex;
+  gap:10px;
+}
+
+.footer__reservados{
+  border-left: 3px solid rgb(58, 57, 57);
+  padding-left: 10px;
+}
+
+.footer svg{
+  transition: .3s ease-in-out;
+}
+
+.footer svg:hover{
+  scale: 1.15;
+  opacity: .5;
+}
+
+@media (max-width: 812px){
+
+    .footer{
+      flex-direction: column;
+      height: 20vh;
+    
+    }
+    .div__footer{
+      flex-direction: column;
+      width: 100%;
+      border: none;
+    }
+    .footer__reservados{
+      border-left: none;
+      border-top: 3px solid rgb(58, 57, 57);
+      border-bottom: 3px solid rgb(58, 57, 57);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      
+    }
+    .footer__derechos{
+      flex-direction: column;
+      text-align: center;
+      margin: 10px 0;
+      width: max-content;
+    }
+    
+}
+
+.main__index{
+  width: 100%;
+  height: 80vh;
+  position: relative;
+}
+
+.video__index{
+  position: absolute;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.main__enlace{
+  position: absolute;
+  background-color: var(--colorBlanco);
+  color: var(--colorNegro);
+  padding: 1rem;
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  right: calc(50vw - 116px);
+  bottom: 20%;
+  opacity: .7;
+  transition: .2s ease-in-out;
+}
+
+.main__enlace:hover{
+  opacity: 1;
+  background-color: rgb(211, 202, 28);
+}
+
+/* NOSOTROS */
+.main__nosotros{
+  width: 80vw;
+  height: max-content;
+  margin: 0 auto 20px auto;
+}
+
+.main__titulo{
+  font-family: var(--letraCard);
+  text-align: center;
+  border-bottom: 2px solid #393939;
+}
+
+.article{
+  margin: 30px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 300px;
+  font-family: var(--letraCard);
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 2;
+  gap: 2rem;
+  font-weight: 300;
+  transition: .3s ease-in-out;
+  border-radius: 10px;
+  overflow: hidden;
+  border:2px solid rgb(178, 178, 178);
+  padding: 1rem;
+}
+.article:hover{
+  -webkit-box-shadow: 3px 4px 32px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 4px 32px 0px rgba(0,0,0,0.75);
+  box-shadow: 3px 4px 32px 0px rgba(0,0,0,0.75);
+  scale: 1.10;
+}
+
+.article__image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px){
+    .article{
+      grid-template-columns: 1fr;
+    }
+    .article__image1,.article__image3{
+      grid-row: 1 / 1 ;
+    }
+}
+
+/* CONTACTO */
+.main__contacto{
+  width: 100%;
+  height: 90vh;
+  background-size: cover;
+  background-position: center; 
+  background-image: url(img/thomas-serer-R_0rTS9ENnk-unsplash.jpg);
+  position: relative;
+}
+
+
+.mas__informacion{
+  display: inline-block;
+  width: max-content;
+  height: max-content;
+  position: absolute;
+  inset: 0;
+  margin: auto auto;
+  background-color: var(--colorBlanco);
+  color: var(--colorNegro);
+  padding: 1rem;
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  opacity: .7;
+  transition: .2s ease-in-out;
+
+}
+.mas__informacion:hover{
+  opacity: 1;
+  background-color: rgb(211, 202, 28);
+}
+
+
+/* Formulario */
+form{
+  width: 70vw;
+  margin: 40px auto;
+  font-family: var(--letraCard);
+  padding: 1rem;
+}
+
+legend{
+  text-transform: uppercase;
+  text-align: center;
+  margin: 10px auto;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.div__campo{
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+form label{
+  font-weight: 500;
+}
+
+form input{
+  border-radius: 5px;
+  padding: 10px;
+  transition: .3s ease;
+}
+
+form button{
+  color: var(--colorBlanco);
+  background-color: var(--colorNegro);
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+input:focus{
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+form button:hover{
+  background-color: #7b7d81;
+}
+
+@media (max-width: 768px){
+    form button{
+      width: 100%;
+    }
+}
